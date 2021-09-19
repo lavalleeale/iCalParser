@@ -1,0 +1,3 @@
+# iCalParser
+
+Parse ical files
