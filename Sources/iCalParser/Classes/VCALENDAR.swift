@@ -14,7 +14,7 @@ public class VCALENDAR {
         self.VERSION = VERSION
     }
     
-    let events: [VEVENT]
-    let PRODID: String
+    public let events: [VEVENT]
+    public let PRODID: String
     let VERSION: Double
 }

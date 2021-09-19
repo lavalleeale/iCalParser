@@ -17,10 +17,10 @@ public class VEVENT {
         self.SUMMARY = SUMMARY
     }
     
-    let UID: String
-    let DTSTAMP: String
-    let ORGANIZER: String
-    let DTSTART: String
-    let DTEND: String
-    let SUMMARY: String
+    public let UID: String
+    public let DTSTAMP: String
+    public let ORGANIZER: String
+    public let DTSTART: String
+    public let DTEND: String
+    public let SUMMARY: String
 }
