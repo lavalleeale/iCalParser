@@ -26,13 +26,13 @@ class Expressions {
         events = try NSRegularExpression(pattern: eventsPattern, options: [])
         let uidPattern = #"UID:(?<UID>.*)"#
         uid = try NSRegularExpression(pattern: uidPattern, options: [])
-        let dtstampPattern = #"DTSTAMP:(?<DTSTAMP>.*)"#
+        let dtstampPattern = #"DTSTAMP(?::|;VALUE=DATE:)(?<DTSTAMP>.*)"#
         dtstamp = try NSRegularExpression(pattern: dtstampPattern, options: [])
         let organizerPattern = #"ORGANIZER;(?<ORGANIZER>.*)"#
         organizer = try NSRegularExpression(pattern: organizerPattern, options: [])
-        let dtstartPattern = #"DTSTART:(?<DTSTART>.*)"#
+        let dtstartPattern = #"DTSTART(?::|;VALUE=DATE:)(?<DTSTART>.*)"#
         dtstart = try NSRegularExpression(pattern: dtstartPattern, options: [])
-        let dtendPattern = #"DTEND:(?<DTEND>.*)"#
+        let dtendPattern = #"DTEND(?::|;VALUE=DATE:)(?<DTEND>.*)"#
         dtend = try NSRegularExpression(pattern: dtendPattern, options: [])
         let summaryPattern = #"SUMMARY:(?<SUMMARY>.*)"#
         summary = try NSRegularExpression(pattern: summaryPattern, options: [])

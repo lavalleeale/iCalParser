@@ -23,7 +23,7 @@ public struct iCalParser {
             }
             
         }
-        return VCALENDAR(events: events, PRODID: prodid, VERSION: Double(version)!)
+        return VCALENDAR(events: events, PRODID: prodid!, VERSION: Double(version!)!)
     }
 }
 //@available(macOS 10.13, *)
@@ -35,21 +35,18 @@ private func parseEvent(event: String) throws -> VEVENT {
     let DTSTART = try namedMatch(regex: expressions.dtstart, name: "DTSTART", data: event)
     let DTEND = try namedMatch(regex: expressions.dtend, name: "DTEND", data: event)
     let SUMMARY = try namedMatch(regex: expressions.summary, name: "SUMMARY", data: event)
-    return VEVENT(UID: UID, DTSTAMP: DTSTAMP, ORGANIZER: ORGANIZER, DTSTART: DTSTART, DTEND: DTEND, SUMMARY: SUMMARY)
-}
-enum FindMatchError: Error {
-    case notFound(search: String)
+    return VEVENT(UID: UID!, DTSTAMP: DTSTAMP!, ORGANIZER: ORGANIZER, DTSTART: DTSTART!, DTEND: DTEND, SUMMARY: SUMMARY!)
 }
 //@available(macOS 10.13, *)
-private func namedMatch(regex: NSRegularExpression, name: String, data: String) throws -> String {
+private func namedMatch(regex: NSRegularExpression, name: String, data: String) throws -> String? {
     let match = regex.firstMatch(in: data, options: [], range: NSRange(data.startIndex..<data.endIndex,
                                                                        in: data))
     if match == nil {
-        throw FindMatchError.notFound(search: name)
+        return nil
     }
     let range = Range(match!.range(withName: name),in:data)
     if range == nil {
-        throw FindMatchError.notFound(search: name)
+        return nil
     }
     return String(data[range!])
 }

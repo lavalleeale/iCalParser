@@ -8,19 +8,24 @@
 import Foundation
 
 public class VEVENT {
-    public init(UID: String, DTSTAMP: String, ORGANIZER: String, DTSTART: String, DTEND: String, SUMMARY: String) {
+    public init(UID: String, DTSTAMP: String, ORGANIZER: String?, DTSTART: String, DTEND: String?, SUMMARY: String) {
         self.UID = UID
-        self.DTSTAMP = DTSTAMP
+        self.DTSTAMP = ParseDate(utc: DTSTAMP)
         self.ORGANIZER = ORGANIZER
-        self.DTSTART = DTSTART
-        self.DTEND = DTEND
+        self.DTSTART = ParseDate(utc: DTSTART)
+        if DTEND != nil {
+            self.DTEND = ParseDate(utc: DTEND!)
+        } else {
+            self.DTEND = nil
+        }
         self.SUMMARY = SUMMARY
     }
     
+    
     public let UID: String
-    public let DTSTAMP: String
-    public let ORGANIZER: String
-    public let DTSTART: String
-    public let DTEND: String
+    public let DTSTAMP: Date
+    public let ORGANIZER: String?
+    public let DTSTART: Date
+    public let DTEND: Date?
     public let SUMMARY: String
 }
