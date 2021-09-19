@@ -1,8 +1,7 @@
 import Foundation
 
 public struct iCalParser {
-//    @available(macOS 10.15, *)
-    func parse(data: String) throws -> VCALENDAR {
+    public static func parseIcal(data: String) throws -> VCALENDAR {
         let expressions = try Expressions()
         let version = try namedMatch(regex: expressions.version, name: "VERSION", data: data)
         let prodid = try namedMatch(regex: expressions.prodid, name: "PRODID", data: data)

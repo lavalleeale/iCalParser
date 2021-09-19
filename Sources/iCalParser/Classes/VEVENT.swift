@@ -7,7 +7,7 @@
 
 import Foundation
 
-class VEVENT {
+public class VEVENT {
     public init(UID: String, DTSTAMP: String, ORGANIZER: String, DTSTART: String, DTEND: String, SUMMARY: String) {
         self.UID = UID
         self.DTSTAMP = DTSTAMP

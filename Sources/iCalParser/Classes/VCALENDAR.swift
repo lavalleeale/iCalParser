@@ -7,7 +7,7 @@
 
 import Foundation
 
-class VCALENDAR {
+public class VCALENDAR {
     public init(events: [VEVENT], PRODID: String, VERSION: Double) {
         self.events = events
         self.PRODID = PRODID

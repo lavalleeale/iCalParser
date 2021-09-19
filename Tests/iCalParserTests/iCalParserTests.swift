@@ -6,7 +6,7 @@ final class iCalParserTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual("Bastille Day Party",try iCalParser().parse(data: """
+        XCTAssertEqual("Bastille Day Party",try iCalParser.parseIcal(data: """
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//hacksw/handcal//NONSGML v1.0//EN
