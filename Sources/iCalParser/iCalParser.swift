@@ -35,7 +35,8 @@ private func parseEvent(event: String) throws -> VEVENT {
     let DTSTART = try namedMatch(regex: expressions.dtstart, name: "DTSTART", data: event)
     let DTEND = try namedMatch(regex: expressions.dtend, name: "DTEND", data: event)
     let SUMMARY = try namedMatch(regex: expressions.summary, name: "SUMMARY", data: event)
-    return VEVENT(UID: UID!, DTSTAMP: DTSTAMP!, ORGANIZER: ORGANIZER, DTSTART: DTSTART!, DTEND: DTEND, SUMMARY: SUMMARY!)
+    let DESCRIPTION = try namedMatch(regex: expressions.description, name: "DESCRIPTION", data: event)
+    return VEVENT(UID: UID!, DTSTAMP: DTSTAMP!, ORGANIZER: ORGANIZER, DTSTART: DTSTART!, DTEND: DTEND, SUMMARY: SUMMARY!, DESCRIPTION: DESCRIPTION)
 }
 //@available(macOS 10.13, *)
 private func namedMatch(regex: NSRegularExpression, name: String, data: String) throws -> String? {

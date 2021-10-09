@@ -17,6 +17,7 @@ class Expressions {
     let dtstart: NSRegularExpression
     let dtend: NSRegularExpression
     let summary: NSRegularExpression
+    let description: NSRegularExpression
     init() throws {
         let versionPattern = #"VERSION:(?<VERSION>.*)"#
         version = try NSRegularExpression(pattern: versionPattern, options: [])
@@ -36,5 +37,7 @@ class Expressions {
         dtend = try NSRegularExpression(pattern: dtendPattern, options: [])
         let summaryPattern = #"SUMMARY:(?<SUMMARY>.*)"#
         summary = try NSRegularExpression(pattern: summaryPattern, options: [])
+        let descriptionPattern = #"DESCRIPTION:(?<DESCRIPTION>(.*( .*|\n)*))"#
+        description = try NSRegularExpression(pattern: descriptionPattern, options: [])
     }
 }
