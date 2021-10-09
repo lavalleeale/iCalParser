@@ -16,6 +16,5 @@ internal func ParseDate(utc: String) -> Date {
         dateFormatter.dateFormat = "yyyyMMdd"
         date = dateFormatter.date(from: utc)
     }
-    print("utc: \(utc), date: \(String(describing: date))")
     return date!
 }
