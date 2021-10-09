@@ -21,7 +21,7 @@ GEO:48.85299;2.36885
 END:VEVENT
 END:VCALENDAR
 """).events.first!.SUMMARY)
-        XCTAssertNoThrow(try iCalParser.parseIcal(data: """
+        XCTAssertEqual("Read and carefully annotate the article from class- \"A Weapon for Readers\"", (try iCalParser.parseIcal(data: """
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:icalendar-ruby
@@ -440,6 +440,6 @@ SEQUENCE:329118068
 SUMMARY:Test - Constant and Uniformly Accelerated Motion
 END:VEVENT
 END:VCALENDAR
-"""))
+""")).events.first?.DESCRIPTION)
     }
 }

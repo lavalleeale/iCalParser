@@ -35,7 +35,7 @@ private func parseEvent(event: String) throws -> VEVENT {
     let DTSTART = try namedMatch(regex: expressions.dtstart, name: "DTSTART", data: event)
     let DTEND = try namedMatch(regex: expressions.dtend, name: "DTEND", data: event)
     let SUMMARY = try namedMatch(regex: expressions.summary, name: "SUMMARY", data: event)
-    let DESCRIPTION = try namedMatch(regex: expressions.description, name: "DESCRIPTION", data: event)
+    let DESCRIPTION = try namedMatch(regex: expressions.description, name: "DESCRIPTION", data: event)?.replacingOccurrences(of: "\n ", with: "").replacingOccurrences(of: "\\n", with: "\n")
     return VEVENT(UID: UID!, DTSTAMP: DTSTAMP!, ORGANIZER: ORGANIZER, DTSTART: DTSTART!, DTEND: DTEND, SUMMARY: SUMMARY!, DESCRIPTION: DESCRIPTION)
 }
 //@available(macOS 10.13, *)

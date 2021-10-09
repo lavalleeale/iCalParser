@@ -37,7 +37,7 @@ class Expressions {
         dtend = try NSRegularExpression(pattern: dtendPattern, options: [])
         let summaryPattern = #"SUMMARY:(?<SUMMARY>.*)"#
         summary = try NSRegularExpression(pattern: summaryPattern, options: [])
-        let descriptionPattern = #"DESCRIPTION:(?<DESCRIPTION>(.*( .*|\n)*))"#
+        let descriptionPattern = #"DESCRIPTION:(?<DESCRIPTION>(.*( .*|\n)*))\n"#
         description = try NSRegularExpression(pattern: descriptionPattern, options: [])
     }
 }
