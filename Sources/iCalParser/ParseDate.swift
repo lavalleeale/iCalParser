@@ -9,11 +9,11 @@ import Foundation
 
 internal func ParseDate(utc: String) -> Date {
     let dateFormatter = DateFormatter()
-    dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-    dateFormatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
+    dateFormatter.dateFormat = "yyyyMMdd"
     var date = dateFormatter.date(from: utc)
     if date == nil {
-        dateFormatter.dateFormat = "yyyyMMdd"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
         date = dateFormatter.date(from: utc)
     }
     return date!
